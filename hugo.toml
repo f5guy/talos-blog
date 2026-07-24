@@ -1,0 +1,18 @@
+baseURL = "https://f5guy.github.io/talos-blog/"
+locale = "vi-VN"
+title = "Talos Blog"
+enableRobotsTXT = true
+
+[params]
+  description = "Ghi chép về Talos Linux, Kubernetes và immutable infrastructure."
+  author = "f5guy"
+
+[markup.highlight]
+  noClasses = false
+  style = "github-dark"
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+[taxonomies]
+  tag = "tags"

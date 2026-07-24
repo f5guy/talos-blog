@@ -1,0 +1,14 @@
+{{ define "main" }}
+<section class="page-head">
+  <h1 class="page-title">{{ .Title }}</h1>
+  {{ with .Content }}<div class="hero-lead">{{ . }}</div>{{ end }}
+</section>
+
+<section class="posts">
+  {{ range .Pages }}
+    {{ partial "post-card.html" . }}
+  {{ else }}
+    <p class="muted">Chưa có bài viết nào.</p>
+  {{ end }}
+</section>
+{{ end }}

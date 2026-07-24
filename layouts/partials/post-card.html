@@ -1,0 +1,14 @@
+{{/* Bài viết HTML tĩnh dùng params.href; bài Markdown thường dùng .RelPermalink. */}}
+{{ $href := .RelPermalink }}
+{{ with .Params.href }}{{ $href = . | relURL }}{{ end }}
+<a class="card" href="{{ $href }}">
+  <div class="card-body">
+    <h3 class="card-title">{{ .Title }}</h3>
+    {{ with .Summary }}<p class="card-sum">{{ . | plainify }}</p>{{ end }}
+    <div class="card-meta">
+      {{ with .Date }}<time datetime="{{ .Format "2006-01-02" }}">{{ .Format "02.01.2006" }}</time>{{ end }}
+      {{ range .Params.tags }}<span class="tag">{{ . }}</span>{{ end }}
+    </div>
+  </div>
+  <span class="card-arrow" aria-hidden="true">→</span>
+</a>

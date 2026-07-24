@@ -1,0 +1,16 @@
+{{ define "main" }}
+<section class="hero">
+  <p class="eyebrow">// {{ site.Language.Locale }}</p>
+  <h1 class="hero-title">{{ site.Title }}</h1>
+  <div class="hero-lead">{{ .Content }}</div>
+</section>
+
+<section class="posts">
+  <h2 class="section-title">Bài viết</h2>
+  {{ range where site.RegularPages "Type" "posts" }}
+    {{ partial "post-card.html" . }}
+  {{ else }}
+    <p class="muted">Chưa có bài viết nào.</p>
+  {{ end }}
+</section>
+{{ end }}

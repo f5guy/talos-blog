@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="{{ site.Language.Locale | default "vi" }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} — {{ site.Title }}{{ end }}</title>
+<meta name="description" content="{{ .Description | default site.Params.description }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ "css/main.css" | relURL }}">
+{{ with .OutputFormats.Get "rss" }}<link rel="alternate" type="application/rss+xml" href="{{ .RelPermalink }}" title="{{ site.Title }}">{{ end }}
+</head>
+<body>
+<header class="site-head">
+  <div class="wrap head-inner">
+    <a class="brand" href="{{ "" | relURL }}">
+      <span class="brand-dot"></span>{{ site.Title }}
+    </a>
+    <nav class="nav">
+      <a href="{{ "posts/" | relURL }}">Bài viết</a>
+      <a href="https://github.com/f5guy/talos-blog">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  {{ block "main" . }}{{ end }}
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <span>© {{ now.Year }} {{ site.Params.author }}</span>
+    <span class="foot-sep">·</span>
+    <span>Built with <a href="https://gohugo.io">Hugo</a></span>
+  </div>
+</footer>
+</body>
+</html>
